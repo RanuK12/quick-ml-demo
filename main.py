@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+from iris_demo import predict
 
 # Generar datos sintéticos
 np.random.seed(42)
@@ -22,4 +23,8 @@ model.fit(X_train, y_train)
 # Predecir y evaluar
 y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
-print(f'Mean Squared Error: {mse}')
+print(f'Mean Squared Error (Linear Regression): {mse}')
+
+# Iris prediction demo
+example = [5.1, 3.5, 1.4, 0.2]
+print(f"Predicted Iris species: {predict(*example)}")
